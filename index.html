@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA JS</title>
+    <link rel="stylesheet" href="page.css">
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    
+    <div class="calculadora-wrap">
+
+        <div class="calculadora-status">
+            <div class="calculadora-desligada">OFF</div>
+        </div>
+
+        <div class="calculadora-tela">
+            <div class="resultado-parcial-tela"></div>
+            <div class="numero-tela"></div>
+        </div>
+
+        <div class="calculadora-teclado">
+            <div class="calculadora-fila">
+                <button data-tipo="onoff" data-valor="onoff" class="calculadora-botao botao-on">ON <span>/OFF</span></button>
+                <button data-tipo="acao" data-valor="C" class="calculadora-botao">C</button>
+                <button data-tipo="acao" data-valor="backspace" class="calculadora-botao">⌫</button>
+            </div>
+
+            <div class="calculadora-fila">
+                <button data-tipo="numerico" data-valor="1" class="calculadora-botao">1</button>
+                <button data-tipo="numerico" data-valor="2" class="calculadora-botao">2</button>
+                <button data-tipo="numerico" data-valor="3" class="calculadora-botao">3</button>
+                <button data-tipo="operacao" data-valor="+" class="calculadora-botao">+</button>
+            </div>
+
+            <div class="calculadora-fila">
+                <button data-tipo="numerico" data-valor="4" class="calculadora-botao">4</button>
+                <button data-tipo="numerico" data-valor="5" class="calculadora-botao">5</button>
+                <button data-tipo="numerico" data-valor="6" class="calculadora-botao">6</button>
+                <button data-tipo="operacao" data-valor="-" class="calculadora-botao">-</button>
+            </div>
+
+            <div class="calculadora-fila">
+                <button data-tipo="numerico" data-valor="7" class="calculadora-botao">7</button>
+                <button data-tipo="numerico" data-valor="8" class="calculadora-botao">8</button>
+                <button data-tipo="numerico" data-valor="9" class="calculadora-botao">9</button>
+                <button data-tipo="operacao" data-valor="×" class="calculadora-botao">×</button>
+            </div>
+
+            <div class="calculadora-fila">
+                <button data-tipo="numerico" data-valor="0" class="calculadora-botao">0</button>
+                <button data-tipo="numerico" data-valor="." class="calculadora-botao">.</button>
+                <button data-tipo="operacao" data-valor="/" class="calculadora-botao">/</button>
+                <button data-tipo="acao" data-valor="=" class="calculadora-botao botao-igual">=</button>
+            </div>
+        </div>
+    </div>
+
+
+<script src="calculadora.js"></script>
+</body>
+</html>
