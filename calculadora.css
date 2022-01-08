@@ -37,6 +37,7 @@
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 30px;
+    overflow: hidden;
 }
 
 .calculadora-tela .resultado-parcial-tela{
