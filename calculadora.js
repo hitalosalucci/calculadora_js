@@ -30,7 +30,6 @@ function clicouBotao(){
         ligarDesligarCalculadora();
     else 
         verificaSeCalculadoraEstaLigada(tipoBotao, valorBotao);
-    
 }
 
 function verificaSeCalculadoraEstaLigada(tipoBotao, valorBotao){
