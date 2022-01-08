@@ -8,6 +8,7 @@ const telaResultadoParcial = document.querySelector(".resultado-parcial-tela");
 //variaveis ambiente
 let calculadoraLigada = false;
 let mostrandoResultado = false;
+let apertouIgual = false;
 
 let operadorConta;
 let numeroAnterior;
@@ -88,6 +89,7 @@ function adicionarNumeroDigitado(valor)
     if (mostrandoResultado)
         numeroDigitadoTela = '';
 
+    apertouIgual = false;
     mostrandoResultado = false;
     numeroDigitadoTela = numeroDigitadoTela+validarNumeroDigitado(valor);
     atualizarNaTela();
@@ -102,8 +104,9 @@ function realizarAcao(valor){
             resetValoresCalculadora();
             break;
         case '=':
-            mostrarResultado();
-            break;
+            if (!apertouIgual)
+                mostrarResultado();
+                break;
         case 'backspace':
             apagarUltimoNumeroDigitado();
             break;
@@ -137,7 +140,7 @@ function adicionarResultadoParcial(numeroAnterior, sinalOperacao, resultadoFinal
 }
 
 function adicionarOperacao(sinalOperacao){
-
+    
     if (numeroAnterior === undefined){
 
         operadorConta = sinalOperacao;
@@ -149,10 +152,20 @@ function adicionarOperacao(sinalOperacao){
     
     }else{
 
-        if (numeroDigitadoTela == '' || numeroDigitadoTela == 0){
+        if (apertouIgual == false && (numeroDigitadoTela == '' || numeroDigitadoTela == 0)){
             operadorConta = sinalOperacao;
             adicionarResultadoParcial(null, operadorConta);
             atualizarNaTela('resultadoParcial');
+        }else if (apertouIgual){
+
+            apertouIgual = false;
+
+            numeroDigitadoTela = valorContaAtual;
+            operadorConta = sinalOperacao;
+
+            adicionarResultadoParcial(numeroAnterior, operadorConta);
+            atualizarNaTela();
+
         }else{
 
             let arrNumerosOperacao = separarNumerosDosSinalDeOperacao(numeroAnterior+operadorConta+numeroDigitadoTela, operadorConta);
@@ -199,11 +212,12 @@ function mostrarResultado(){
 
     atualizarNaTela();
 
-    zerarValoresCalculadora();
+    apertouIgual = true;
+
 }
 
 function realizarOperacao(arrNumerosOperacao){
-    console.log(arrNumerosOperacao)
+
     let primeiroNumero = arrNumerosOperacao[0]; 
     let segundoNumero = arrNumerosOperacao[1]; 
     let operacao = arrNumerosOperacao[2];
@@ -224,6 +238,7 @@ function realizarOperacao(arrNumerosOperacao){
 function zerarValoresCalculadora(){
 
     mostrandoResultado = false;
+    apertouIgual = false;
 
     operadorConta = undefined;
     numeroAnterior = undefined;
